@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Welcome, {{ current_user.username }}!</h2>
+    <p>Start playing the Tic Tac Toe game:</p>
+    <a href="{{ url_for('game') }}" class="btn btn-primary">Play Game</a>
+    <p class="mt-3">Not {{ current_user.username }}? <a href="{{ url_for('logout') }}">Log Out</a></p>
+{% endblock %}

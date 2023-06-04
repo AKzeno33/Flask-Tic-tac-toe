@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content media-body">
+    <div class="media">
+        <img src="{{ url_for( 'static', filename='Cat/' + current_user.image_file) }}" class="rounded-circle account-img" >
+    <div class="media-body">
+        <h2 class="account-heading">{{ current_user.username}}</h1>
+        <p class="text-secondary">{{ current_user.email }}</h2>
+    </div>
+</div>
+</div>
+<body>
+    <h2>Update Account</h2>
+    <form method="POST" action="{{ url_for('account') }}" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.username.label }} {{ form.username(class='form-control') }}
+            {% for error in form.username.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.email.label }} {{ form.email(class='form-control') }}
+            {% for error in form.email.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.picture.label() }} 
+            {{ form.picture(class='form-control-file') }}
+                {% if form.picture.errors %}
+                {% for error in form.picture.errors %}
+                    <span class="text-danger">{{ error }}</span></br>
+                {% endfor %}
+                {% endif %}
+        </div>
+        {{ form.submit(class='btn btn-primary') }}
+    </form>
+</body>
+{% endblock %}
+

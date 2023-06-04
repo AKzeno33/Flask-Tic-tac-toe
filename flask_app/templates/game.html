@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Tic Tac Toe Game</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div id="board" class="board">
+                    <div class="row">
+                        <div class="col-4 cell" onclick="makeMove(0, 0)">[______]</div>
+                        <div class="col-4 cell" onclick="makeMove(0, 1)">[______]</div>
+                        <div class="col-4 cell" onclick="makeMove(0, 2)">[______]</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 cell" onclick="makeMove(1, 0)">[______]</div>
+                        <div class="col-4 cell" onclick="makeMove(1, 1)">[______]</div>
+                        <div class="col-4 cell" onclick="makeMove(1, 2)">[______]</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 cell" onclick="makeMove(2, 0)">[______]</div>
+                        <div class="col-4 cell" onclick="makeMove(2, 1)">[______]</div>
+                        <div class="col-4 cell" onclick="makeMove(2, 2)">[______]</div>
+                    </div>
+                </div>
+                <div id="status" class="status mt-3"></div>
+                <div class="scoreboard">
+                    <p>Player Score: <span id="playerScore">0</span></p>
+                    <p>Computer Score: <span id="computerScore">0</span></p>
+                </div>
+                <button class="btn btn-primary mt-3" onclick="resetGame()">Restart</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/flask_app/static/script.js"></script>
+{% endblock %}
